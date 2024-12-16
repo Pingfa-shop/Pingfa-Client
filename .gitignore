@@ -1,6 +1,12 @@
 /Files
 /InvisibleMan-XRay/bin
 /InvisibleMan-XRay/obj
+/.idea
+/Release
+/Archive
+/Codesign
+/Publish
+/InvisibleMan-XRay/Pingfa.snk
 *.dll
 *.dat
 *.exe

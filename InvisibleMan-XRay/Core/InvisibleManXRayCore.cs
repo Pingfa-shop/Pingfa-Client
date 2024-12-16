@@ -8,7 +8,6 @@ namespace InvisibleManXRay.Core
     using Values;
     using Utilities;
     using Services;
-    using Services.Analytics.Core;
 
     public class InvisibleManXRayCore
     {
@@ -29,7 +28,6 @@ namespace InvisibleManXRay.Core
         private Action<string> onFailLoadingConfig;
 
         private LocalizationService LocalizationService => ServiceLocator.Get<LocalizationService>();
-        private AnalyticsService AnalyticsService => ServiceLocator.Get<AnalyticsService>();
 
         public void Setup(
             Func<Config> getConfig, 
@@ -117,22 +115,12 @@ namespace InvisibleManXRay.Core
             bool isSocks = getProtocol.Invoke() == Protocol.SOCKS || mode == Mode.TUN;
             bool isUdpEnabled = getUdpEnabled.Invoke();
 
-            SendServerStartEvent();
             XRayCoreWrapper.StartServer(config, port, logLevel, logPath, isSocks, isUdpEnabled);
-
-            void SendServerStartEvent()
-            {
-                if (mode == Mode.PROXY)
-                    AnalyticsService.SendEvent(new ProxyStartedEvent());
-                else
-                    AnalyticsService.SendEvent(new TunStartedEvent());
-            }
         }
 
         public void Stop()
         {
             XRayCoreWrapper.StopServer();
-            AnalyticsService.SendEvent(new StoppedEvent());
         }
 
         public void Cancel()

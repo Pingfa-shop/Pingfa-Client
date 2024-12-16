@@ -28,7 +28,6 @@ namespace InvisibleManXRay.Handlers
             this.userSettings.IsSystemProxyUse = userSettings.IsSystemProxyUse;
             this.userSettings.IsUdpEnable = userSettings.IsUdpEnable;
             this.userSettings.IsRunningAtStartup = userSettings.IsRunningAtStartup;
-            this.userSettings.IsSendingAnalytics = userSettings.IsSendingAnalytics;
             this.userSettings.ProxyPort = userSettings.ProxyPort;
             this.userSettings.TunPort = userSettings.TunPort;
             this.userSettings.TestPort = userSettings.TestPort;

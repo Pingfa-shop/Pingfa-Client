@@ -14,14 +14,13 @@ namespace InvisibleManXRay.Managers.Initializers
             ServicesManager = new ServicesManager();
 
             ServicesManager.AddService(new LocalizationService());
-            ServicesManager.AddService(new AnalyticsService());
         }
 
         public void Setup(HandlersManager handlersManager)
         {
             SetupServiceLocator();
             SetupLocalizationService();
-            SetupAnalyticsService();
+            SetupMainService();
 
             void SetupServiceLocator()
             {
@@ -37,22 +36,9 @@ namespace InvisibleManXRay.Managers.Initializers
                 );
             }
 
-            void SetupAnalyticsService()
+            void SetupMainService()
             {
                 SettingsHandler settingsHandler = handlersManager.GetHandler<SettingsHandler>();
-                VersionHandler versionHandler = handlersManager.GetHandler<VersionHandler>();
-
-                ServicesManager.GetService<AnalyticsService>().Setup(
-                    getClientId: settingsHandler.UserSettings.GetClientId,
-                    getSendingAnalyticsEnabled: settingsHandler.UserSettings.GetSendingAnalyticsEnabled,
-                    getApplicationVersion: GetApplicationVersion
-                );
-
-                string GetApplicationVersion()
-                {
-                    AppVersion appVersion = versionHandler.GetApplicationVersion();
-                    return $"{appVersion.Major}.{appVersion.Feature}.{appVersion.BugFix}";
-                }
             }
         }
     }

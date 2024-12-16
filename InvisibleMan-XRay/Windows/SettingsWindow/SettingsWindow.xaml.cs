@@ -8,7 +8,6 @@ namespace InvisibleManXRay
 {
     using Models;
     using Services;
-    using Services.Analytics.SettingsWindow;
 
     public partial class SettingsWindow : Window
     {
@@ -42,7 +41,6 @@ namespace InvisibleManXRay
         private Func<bool> getSystemProxyUsed;
         private Func<bool> getUdpEnabled;
         private Func<bool> getRunningAtStartupEnabled;
-        private Func<bool> getSendingAnalyticsEnabled;
         private Func<int> getProxyPort;
         private Func<int> getTunPort;
         private Func<int> getTestPort;
@@ -50,12 +48,9 @@ namespace InvisibleManXRay
         private Func<String> getDns;
         private Func<LogLevel> getLogLevel;
         private Func<string> getLogPath;
-        private Func<PolicyWindow> openPolicyWindow;
 
         private Action<UserSettings> onUpdateUserSettings;
-
-        private AnalyticsService AnalyticsService => ServiceLocator.Get<AnalyticsService>();
-
+        
         public SettingsWindow()
         {
             InitializeComponent();
@@ -85,7 +80,6 @@ namespace InvisibleManXRay
             Func<bool> getSystemProxyUsed,
             Func<bool> getUdpEnabled,
             Func<bool> getRunningAtStartupEnabled,
-            Func<bool> getSendingAnalyticsEnabled,
             Func<int> getProxyPort,
             Func<int> getTunPort,
             Func<int> getTestPort,
@@ -93,7 +87,6 @@ namespace InvisibleManXRay
             Func<string> getDns,
             Func<LogLevel> getLogLevel,
             Func<string> getLogPath,
-            Func<PolicyWindow> openPolicyWindow,
             Action<UserSettings> onUpdateUserSettings
         )
         {
@@ -103,7 +96,6 @@ namespace InvisibleManXRay
             this.getSystemProxyUsed = getSystemProxyUsed;
             this.getUdpEnabled = getUdpEnabled;
             this.getRunningAtStartupEnabled = getRunningAtStartupEnabled;
-            this.getSendingAnalyticsEnabled = getSendingAnalyticsEnabled;
             this.getProxyPort = getProxyPort;
             this.getTunPort = getTunPort;
             this.getTestPort = getTestPort;
@@ -111,7 +103,6 @@ namespace InvisibleManXRay
             this.getDns = getDns;
             this.getLogLevel = getLogLevel;
             this.getLogPath = getLogPath;
-            this.openPolicyWindow = openPolicyWindow;
             this.onUpdateUserSettings = onUpdateUserSettings;
 
             UpdateUI();
@@ -132,7 +123,6 @@ namespace InvisibleManXRay
                 checkBoxUseSystemProxy.IsChecked = getSystemProxyUsed.Invoke();
                 checkBoxEnableUdp.IsChecked = getUdpEnabled.Invoke();
                 checkBoxRunAtStartup.IsChecked = getRunningAtStartupEnabled.Invoke();
-                checkBoxSendAnalytics.IsChecked = getSendingAnalyticsEnabled.Invoke();
             }
 
             void UpdatePortPanelUI()
@@ -205,13 +195,6 @@ namespace InvisibleManXRay
             }
         }
 
-        private void OnAnalyticsClick(object sender, RoutedEventArgs e)
-        {
-            PolicyWindow policyWindow = openPolicyWindow.Invoke();
-            policyWindow.Owner = this;
-            policyWindow.ShowDialog();
-        }
-
         private void OnConfirmButtonClick(object sender, RoutedEventArgs e)
         {
             UserSettings userSettings = new UserSettings(
@@ -222,7 +205,6 @@ namespace InvisibleManXRay
                 isSystemProxyUse: checkBoxUseSystemProxy.IsChecked.Value,
                 isUdpEnable: checkBoxEnableUdp.IsChecked.Value,
                 isRunningAtStartup: checkBoxRunAtStartup.IsChecked.Value,
-                isSendingAnalytics: checkBoxSendAnalytics.IsChecked.Value,
                 proxyPort: int.Parse(textBoxProxyPort.Text),
                 tunPort: int.Parse(textBoxTunPort.Text),
                 testPort: int.Parse(textBoxTestPort.Text),
@@ -232,7 +214,6 @@ namespace InvisibleManXRay
             );
             
             SendRunAtStartupActivationEvent();
-            ForceSendAnalyticsActivationEvent();
             onUpdateUserSettings.Invoke(userSettings);
 
             Close();
@@ -241,31 +222,9 @@ namespace InvisibleManXRay
             {
                 if (!IsUserChangeRunningAtStartupSetting())
                     return;
-
-                if (userSettings.GetRunningAtStartupEnabled())
-                    AnalyticsService.SendEvent(new RunAtStartupActivatedEvent());
-                else
-                    AnalyticsService.SendEvent(new RunAtStartupDeactivatedEvent());
-
                 bool IsUserChangeRunningAtStartupSetting()
                 {
                     return getRunningAtStartupEnabled.Invoke() != checkBoxRunAtStartup.IsChecked.Value;
-                }
-            }
-
-            void ForceSendAnalyticsActivationEvent()
-            {
-                if (!IsUserChangeSendingAnalyticsEnabledSetting())
-                    return;
-
-                if (userSettings.GetSendingAnalyticsEnabled())
-                    AnalyticsService.SendEvent(new AnalyticsActivatedEvent(), true);
-                else
-                    AnalyticsService.SendEvent(new AnalyticsDeactivatedEvent(), true);
-
-                bool IsUserChangeSendingAnalyticsEnabledSetting()
-                {
-                    return getSendingAnalyticsEnabled.Invoke() != checkBoxSendAnalytics.IsChecked.Value;
                 }
             }
         }

@@ -23,9 +23,6 @@ namespace InvisibleManXRay.Managers.Initializers
             HandlersManager.AddHandler(new ProxyHandler());
             HandlersManager.AddHandler(new TunnelHandler());
             HandlersManager.AddHandler(new NotifyHandler());
-            HandlersManager.AddHandler(new VersionHandler());
-            HandlersManager.AddHandler(new UpdateHandler());
-            HandlersManager.AddHandler(new BroadcastHandler());
             HandlersManager.AddHandler(new DeepLinkHandler());
             HandlersManager.AddHandler(new LinkHandler());
             HandlersManager.AddHandler(new LocalizationHandler());
@@ -40,7 +37,6 @@ namespace InvisibleManXRay.Managers.Initializers
             SetupProcessHandler();
             SetupTunnelHandler();
             SetupConfigHandler();
-            SetupUpdateHandler();
             SetupNotifyHandler();
             SetupDeepLinkHandler();
             SetupLocalizationHandler();
@@ -75,16 +71,6 @@ namespace InvisibleManXRay.Managers.Initializers
                 );
             }
 
-            void SetupUpdateHandler()
-            {
-                VersionHandler versionHandler = handlersManager.GetHandler<VersionHandler>();
-
-                handlersManager.GetHandler<UpdateHandler>().Setup(
-                    getApplicationVersion: versionHandler.GetApplicationVersion,
-                    convertToAppVersion: versionHandler.ConvertToAppVersion
-                );
-            }
-
             void SetupNotifyHandler()
             {
                 SettingsHandler settingsHandler = handlersManager.GetHandler<SettingsHandler>();
@@ -92,8 +78,6 @@ namespace InvisibleManXRay.Managers.Initializers
                 handlersManager.GetHandler<NotifyHandler>().Setup(
                     getMode: settingsHandler.UserSettings.GetMode,
                     onOpenClick: OpenApplication,
-                    onUpdateClick: OpenUpdateWindow,
-                    onAboutClick: OpenAboutWindow,
                     onCloseClick: CloseApplication,
                     onProxyModeClick: () => { OnModeClick(Mode.PROXY); },
                     onTunnelModeClick: () => { OnModeClick(Mode.TUN); }
@@ -105,28 +89,6 @@ namespace InvisibleManXRay.Managers.Initializers
                     Application.Current.Shutdown();
                 }
                 
-                void OpenUpdateWindow() 
-                {
-                    ShowMainWindow();
-                    if(IsAnotherWindowOpened())
-                        CloseOtherWindows();
-
-                    UpdateWindow updateWindow = windowFactory.CreateUpdateWindow();
-                    updateWindow.Owner = Application.Current.MainWindow;
-                    updateWindow.ShowDialog();
-                }
-
-                void OpenAboutWindow()
-                {
-                    ShowMainWindow();
-                    if(IsAnotherWindowOpened())
-                        CloseOtherWindows();
-
-                    AboutWindow aboutWindow = windowFactory.CreateAboutWindow();
-                    aboutWindow.Owner = Application.Current.MainWindow;
-                    aboutWindow.ShowDialog();
-                }
-
                 void OnModeClick(Mode mode) 
                 {
                     if (mode == settingsHandler.UserSettings.GetMode())

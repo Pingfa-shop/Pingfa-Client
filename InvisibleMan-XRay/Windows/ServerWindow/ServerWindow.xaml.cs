@@ -20,9 +20,7 @@ namespace InvisibleManXRay
         private Func<bool> isCurrentPathEqualRootConfigPath;
         private Func<string, int> testConnection;
         private Func<string> getLogPath;
-
-        private AnalyticsService AnalyticsService => ServiceLocator.Get<AnalyticsService>();
-
+        
         public ServerWindow()
         {
             InitializeComponent();

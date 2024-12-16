@@ -8,7 +8,6 @@ namespace InvisibleManXRay.Handlers
 {
     using Models;
     using Services;
-    using Services.Analytics.Notify;
     using Values;
 
     public class NotifyHandler : Handler
@@ -26,13 +25,10 @@ namespace InvisibleManXRay.Handlers
         private Dictionary<Mode, ToolStripMenuItem> modeItems;
 
         private LocalizationService LocalizationService => ServiceLocator.Get<LocalizationService>();
-        private AnalyticsService AnalyticsService => ServiceLocator.Get<AnalyticsService>();
 
         public void Setup(
             Func<Mode> getMode,
             Action onOpenClick,
-            Action onUpdateClick,
-            Action onAboutClick,
             Action onCloseClick,
             Action onProxyModeClick,
             Action onTunnelModeClick
@@ -40,8 +36,6 @@ namespace InvisibleManXRay.Handlers
         {
             this.getMode = getMode;
             this.onOpenClick = onOpenClick;
-            this.onUpdateClick = onUpdateClick;
-            this.onAboutClick = onAboutClick;
             this.onCloseClick = onCloseClick;
             this.onProxyModeClick = onProxyModeClick;
             this.onTunnelModeClick = onTunnelModeClick;
@@ -94,8 +88,6 @@ namespace InvisibleManXRay.Handlers
             
             AddMenuItem(LocalizationService.GetTerm(Localization.NOTIFY_OPEN), OnOpenClick);
             AddMenuItem(LocalizationService.GetTerm(Localization.NOTIFY_MODE), delegate { }, modeItems.Values.ToArray());
-            AddMenuItem(LocalizationService.GetTerm(Localization.NOTIFY_UPDATE), OnUpdateClick);
-            AddMenuItem(LocalizationService.GetTerm(Localization.NOTIFY_ABOUT), OnAboutClick);
             AddMenuItem(LocalizationService.GetTerm(Localization.NOTIFY_CLOSE), OnCloseClick);
 
             notifyIcon.ContextMenuStrip = contextMenuStrip;
@@ -138,32 +130,17 @@ namespace InvisibleManXRay.Handlers
 
             void OnProxyModeClick()
             {
-                AnalyticsService.SendEvent(new ProxyModeClickedEvent());
                 onProxyModeClick.Invoke();
             }
 
             void OnTunnelModeClick()
             {
-                AnalyticsService.SendEvent(new TunModeClickedEvent());
                 onTunnelModeClick.Invoke();
             }
 
             void OnOpenClick()
             {
-                AnalyticsService.SendEvent(new OpenClickedEvent());
                 onOpenClick.Invoke();
-            }
-
-            void OnUpdateClick()
-            {
-                AnalyticsService.SendEvent(new CheckForUpdateClickedEvent());
-                onUpdateClick.Invoke();
-            }
-
-            void OnAboutClick()
-            {
-                AnalyticsService.SendEvent(new AboutClickedEvent());
-                onAboutClick.Invoke();
             }
 
             void OnCloseClick()

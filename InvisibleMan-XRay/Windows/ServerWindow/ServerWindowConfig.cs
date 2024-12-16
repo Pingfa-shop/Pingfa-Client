@@ -8,7 +8,6 @@ namespace InvisibleManXRay
 {
     using Models;
     using Services;
-    using Services.Analytics.ServerWindow;
 
     public partial class ServerWindow : Window
     {
@@ -56,7 +55,6 @@ namespace InvisibleManXRay
         private void OnAddConfigButtonClick(object sender, RoutedEventArgs e)
         {
             ShowAddConfigsServerPanel();
-            AnalyticsService.SendEvent(new AddConfigButtonClickedEvent());
         }
 
         private void OnFileRadioButtonClick(object sender, RoutedEventArgs e)
@@ -105,12 +103,10 @@ namespace InvisibleManXRay
             if (IsFileImporting())
             {
                 HandleImportingConfigFromFile();
-                AnalyticsService.SendEvent(new ConfigFromFileImportedEvent());
             }
             else
             {
                 HandleImportingConfigFromLink();
-                AnalyticsService.SendEvent(new ConfigFromLinkImportedEvent());
             }
 
             bool IsFileImporting() => importingType == ImportingType.FILE;

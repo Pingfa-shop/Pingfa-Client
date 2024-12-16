@@ -27,37 +27,27 @@ namespace InvisibleManXRay.Factories
         public MainWindow CreateMainWindow()
         {
             ConfigHandler configHandler = handlersManager.GetHandler<ConfigHandler>();
-            UpdateHandler updateHandler = handlersManager.GetHandler<UpdateHandler>();
-            BroadcastHandler broadcastHandler = handlersManager.GetHandler<BroadcastHandler>();
             SettingsHandler settingsHandler = handlersManager.GetHandler<SettingsHandler>();
             LinkHandler linkHandler = handlersManager.GetHandler<LinkHandler>();
 
             MainWindow mainWindow = new MainWindow();
             mainWindow.Setup(
-                isNeedToShowPolicyWindow: IsNeedToShowPolicyWindow,
                 getConfig: configHandler.GetCurrentConfig,
                 loadConfig: core.LoadConfig,
                 enableMode: core.EnableMode,
-                checkForUpdate: updateHandler.CheckForUpdate,
-                checkForBroadcast: broadcastHandler.CheckForBroadcast,
                 openServerWindow: CreateServerWindow,
                 openSettingsWindow: CreateSettingsWindow,
-                openUpdateWindow: CreateUpdateWindow,
-                openAboutWindow: CreateAboutWindow,
-                openPolicyWindow: CreatePolicyWindow,
                 onRunServer: core.Run,
                 onStopServer: core.Stop,
                 onCancelServer: core.Cancel,
                 onDisableMode: core.DisableMode,
                 onGenerateClientId: settingsHandler.GenerateClientId,
-                onGitHubClick: linkHandler.OpenGitHubRepositoryLink,
-                onBugReportingClick: linkHandler.OpenBugReportingLink,
                 onCustomLinkClick: linkHandler.OpenCustomLink
             );
             
             return mainWindow;
 
-            bool IsNeedToShowPolicyWindow() => settingsHandler.UserSettings.GetClientId() == "";
+            bool IsNeedToShowPolicyWindow() => false;
         }
 
         public SettingsWindow CreateSettingsWindow()
@@ -74,7 +64,6 @@ namespace InvisibleManXRay.Factories
                 getSystemProxyUsed: settingsHandler.UserSettings.GetSystemProxyUsed,
                 getUdpEnabled: settingsHandler.UserSettings.GetUdpEnabled,
                 getRunningAtStartupEnabled: settingsHandler.UserSettings.GetRunningAtStartupEnabled,
-                getSendingAnalyticsEnabled: settingsHandler.UserSettings.GetSendingAnalyticsEnabled,
                 getProxyPort: settingsHandler.UserSettings.GetProxyPort,
                 getTunPort: settingsHandler.UserSettings.GetTunPort,
                 getTestPort: settingsHandler.UserSettings.GetTestPort,
@@ -82,7 +71,6 @@ namespace InvisibleManXRay.Factories
                 getDns: settingsHandler.UserSettings.GetDns,
                 getLogLevel: settingsHandler.UserSettings.GetLogLevel,
                 getLogPath: settingsHandler.UserSettings.GetLogPath,
-                openPolicyWindow: CreatePolicyWindow,
                 onUpdateUserSettings: UpdateUserSettings
             );
 
@@ -100,58 +88,6 @@ namespace InvisibleManXRay.Factories
                 notifyHandler.InitializeNotifyIcon();
                 notifyHandler.CheckModeItem(userSettings.GetMode());
                 GetMainWindow().TryDisableModeAndRerun();
-            }
-        }
-
-        public UpdateWindow CreateUpdateWindow()
-        {
-            UpdateHandler updateHandler = handlersManager.GetHandler<UpdateHandler>();
-            LinkHandler linkHandler = handlersManager.GetHandler<LinkHandler>();
-
-            UpdateWindow updateWindow = new UpdateWindow();
-            updateWindow.Setup(
-                checkForUpdate: updateHandler.CheckForUpdate,
-                onUpdateClick: linkHandler.OpenLatestReleaseLink
-            );
-
-            SetupLocalizedWindowTitle(
-                window: updateWindow,
-                term: Localization.WINDOW_TITLE_UPDATE
-            );
-
-            return updateWindow;
-        }
-
-        public AboutWindow CreateAboutWindow()
-        {
-            VersionHandler versionHandler = handlersManager.GetHandler<VersionHandler>();
-            LinkHandler linkHandler = handlersManager.GetHandler<LinkHandler>();
-
-            AboutWindow aboutWindow = new AboutWindow();
-            aboutWindow.Setup(
-                getApplicationVersion: GetApplicationVersion,
-                getXRayCoreVersion: GetXRayCoreVersion,
-                onEmailClick: linkHandler.OpenEmailLink,
-                onWebsiteClick: linkHandler.OpenWebsiteLink,
-                onBugReportingClick: linkHandler.OpenBugReportingLink
-            );
-
-            SetupLocalizedWindowTitle(
-                window: aboutWindow,
-                term: Localization.WINDOW_TITLE_ABOUT
-            );
-
-            return aboutWindow;
-
-            string GetApplicationVersion()
-            {
-                AppVersion appVersion = versionHandler.GetApplicationVersion();
-                return $"{appVersion.Major}.{appVersion.Feature}.{appVersion.BugFix}";
-            }
-
-            string GetXRayCoreVersion()
-            {
-                return core.GetVersion();
             }
         }
 
@@ -197,26 +133,9 @@ namespace InvisibleManXRay.Factories
             }
         }
 
-        public PolicyWindow CreatePolicyWindow()
-        {
-            LinkHandler linkHandler = handlersManager.GetHandler<LinkHandler>();
-
-            PolicyWindow policyWindow = new PolicyWindow();
-            policyWindow.Setup(
-                onEmailClick: linkHandler.OpenEmailLink
-            );
-
-            SetupLocalizedWindowTitle(
-                window: policyWindow,
-                term: Localization.WINDOW_TITLE_POLICY
-            );
-
-            return policyWindow;
-        }
-
         private void SetupLocalizedWindowTitle(Window window, string term)
         {
-            window.Title = $"Invisible Man XRay - {LocalizationService.GetTerm(term)}";
+            window.Title = $"Pingfa - {LocalizationService.GetTerm(term)}";
         }
     }
 }

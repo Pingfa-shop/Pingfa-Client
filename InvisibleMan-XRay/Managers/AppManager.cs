@@ -43,6 +43,8 @@ namespace InvisibleManXRay.Managers
             SetupServices();
             SetupCore();
             SetupFactories();
+            
+            Ino.LogCatcher.InitLogCatcher(coreInitializer.Core);
         }
 
         private void AvoidRunningMultipleInstances()

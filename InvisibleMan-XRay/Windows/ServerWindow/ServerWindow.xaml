@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:InvisibleManXRay"
         xmlns:Controls="clr-namespace:InvisibleManXRay.Components"
         mc:Ignorable="d"
-        Title="Invisible Man XRay - Server config"
+        Title="Pingfa client - Server config"
         Height="450" 
         Width="350" 
         WindowStartupLocation="CenterOwner"  

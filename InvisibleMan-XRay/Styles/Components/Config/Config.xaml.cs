@@ -9,7 +9,6 @@ namespace InvisibleManXRay.Components
 {
     using Values;
     using Services;
-    using Services.Analytics.Configuration;
 
     public partial class Config : UserControl
     {
@@ -25,7 +24,6 @@ namespace InvisibleManXRay.Components
         private BackgroundWorker checkConnectionWorker;
 
         private LocalizationService LocalizationService => ServiceLocator.Get<LocalizationService>();
-        private AnalyticsService AnalyticsService => ServiceLocator.Get<AnalyticsService>();
 
         public Config()
         {
@@ -91,13 +89,11 @@ namespace InvisibleManXRay.Components
 
         private void OnSelectButtonClick(object sender, RoutedEventArgs e)
         {
-            AnalyticsService.SendEvent(new SelectButtonClickedEvent());
             onSelect.Invoke();
         }
 
         private void OnEditButtonClick(object sender, RoutedEventArgs e)
         {
-            AnalyticsService.SendEvent(new EditButtonClickedEvent());
 
             if (!File.Exists(config.Path))
             {
@@ -124,7 +120,6 @@ namespace InvisibleManXRay.Components
 
         private void OnDeleteButtonClick(object sender, RoutedEventArgs e)
         {
-            AnalyticsService.SendEvent(new DeleteButtonClickedEvent());
 
             MessageBoxResult result = MessageBox.Show(
                 getServerWindow.Invoke(),
@@ -156,7 +151,6 @@ namespace InvisibleManXRay.Components
 
         private void OnShareButtonClick(object sender, RoutedEventArgs e)
         {
-            AnalyticsService.SendEvent(new ShareButtonClickedEvent());
 
             if (!File.Exists(config.Path))
             {
@@ -190,13 +184,11 @@ namespace InvisibleManXRay.Components
 
         private void OnCheckButtonClick(object sender, RoutedEventArgs e)
         {
-            AnalyticsService.SendEvent(new CheckButtonClickedEvent());
             checkConnectionWorker.RunWorkerAsync();
         }
 
         private void OnLogButtonClick(object sender, RoutedEventArgs e)
         {
-            AnalyticsService.SendEvent(new LogButtonClickedEvent());
             string path = System.IO.Path.GetFullPath($"{getLogPath.Invoke()}/{config.Name}");
             
             if (!IsLogDirectoryExists())

@@ -35,9 +35,6 @@ namespace InvisibleManXRay.Models
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Populate), DefaultValue(false)]
         public bool IsRunningAtStartup;
 
-        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Populate), DefaultValue(true)]
-        public bool IsSendingAnalytics;
-
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Populate), DefaultValue(10801)]
         public int ProxyPort;
 
@@ -64,12 +61,11 @@ namespace InvisibleManXRay.Models
             this.ClientId = "";
             this.Language = "en-US";
             this.CurrentConfigPath = "./Configs";
-            this.Mode = Mode.PROXY;
+            this.Mode = Mode.TUN;
             this.Protocol = Protocol.HTTP;
             this.IsSystemProxyUse = true;
             this.IsUdpEnable = true;
-            this.IsRunningAtStartup = false;
-            this.IsSendingAnalytics = true;
+            this.IsRunningAtStartup = true;
             this.TunIp = "10.0.236.10";
             this.ProxyPort = 10801;
             this.TunPort = 10802;
@@ -87,7 +83,6 @@ namespace InvisibleManXRay.Models
             bool isUdpEnable,
             bool isSystemProxyUse,
             bool isRunningAtStartup,
-            bool isSendingAnalytics,
             int proxyPort,
             int tunPort,
             int testPort,
@@ -103,7 +98,6 @@ namespace InvisibleManXRay.Models
             this.IsSystemProxyUse = isSystemProxyUse;
             this.IsUdpEnable = isUdpEnable;
             this.IsRunningAtStartup = isRunningAtStartup;
-            this.IsSendingAnalytics = isSendingAnalytics;
             this.ProxyPort = proxyPort;
             this.TunPort = tunPort;
             this.TestPort = testPort;
@@ -127,8 +121,6 @@ namespace InvisibleManXRay.Models
         public bool GetUdpEnabled() => IsUdpEnable;
 
         public bool GetRunningAtStartupEnabled() => IsRunningAtStartup;
-
-        public bool GetSendingAnalyticsEnabled() => IsSendingAnalytics;
 
         public int GetProxyPort() => ProxyPort;
 

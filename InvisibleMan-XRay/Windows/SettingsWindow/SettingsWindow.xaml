@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:InvisibleManXRay"
         xmlns:Controls="clr-namespace:InvisibleManXRay.Components"
         mc:Ignorable="d"
-        Title="Invisible Man XRay - Settings"
+        Title="Pingfa client - Settings"
         Height="470" 
         Width="350" 
         WindowStartupLocation="CenterOwner"  
@@ -139,21 +139,6 @@
 
                     <CheckBox x:Name="checkBoxEnableUdp" Margin="5 15 0 0" Foreground="White" 
                         Content="{DynamicResource Lang.Window.Settings.Basic.EnbleUdp}" FontFamily="{StaticResource SegoeUI}" FontWeight="Normal" FontSize="14"/>
-
-                    <CheckBox x:Name="checkBoxSendAnalytics" Margin="5 15 0 0" Foreground="White" 
-                        FontFamily="{StaticResource SegoeUI}" FontWeight="Normal" FontSize="14">
-
-                        <TextBlock>
-                            <Run Text="{DynamicResource Lang.Window.Settings.Basic.SendAnalyticsPart1}" />
-                            <Run TextDecorations="Underline"
-                                Foreground="{StaticResource Color.Blue}" 
-                                FontWeight="Normal" FontSize="14" Cursor="Hand"
-                                Text="{DynamicResource Lang.Window.Settings.Basic.SendAnalyticsPart2}"
-                                PreviewMouseDown="OnAnalyticsClick" />
-                            <Run Text="{DynamicResource Lang.Window.Settings.Basic.SendAnalyticsPart3}" />
-                        </TextBlock>
-
-                    </CheckBox>
                         
                     <CheckBox x:Name="checkBoxRunAtStartup" Margin="5 15 0 0" Foreground="White" 
                         Content="{DynamicResource Lang.Window.Settings.Basic.RunAtStartup}" FontFamily="{StaticResource SegoeUI}" FontWeight="Normal" FontSize="14"/>

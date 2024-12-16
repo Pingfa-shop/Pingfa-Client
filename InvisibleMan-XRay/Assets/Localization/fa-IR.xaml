@@ -23,40 +23,6 @@
     
     <system:String x:Key="Lang.Window.Main.ManageServerConfiguration">مدیریت پیکربندی‌های سرور</system:String>
 
-    <system:String x:Key="Lang.Window.About.WindowTitle">درباره</system:String>
-    <system:String x:Key="Lang.Window.About.Title">درباره</system:String>
-    <system:String x:Key="Lang.Window.About.Subtitle">Invisible Man XRay درباره برنامه</system:String>
-    <system:String x:Key="Lang.Window.About.ApplicationVersion">نسخه برنامه:</system:String>
-    <system:String x:Key="Lang.Window.About.XrayCoreVersion">نسخه هسته ایکس‌ری:</system:String>
-    <system:String x:Key="Lang.Window.About.Description">یک کلاینت متن باز و رایگان است که از هسته xray پشتیبانی می‌کند. این برنامه یک رابط کاربری آسان برای پیکربندی و مدیریت پراکسی‌ها ارائه داده و به کاربران اجازه می‌دهد بین پیکربندی‌های مختلف جابجا شوند.</system:String>
-    <system:String x:Key="Lang.Window.About.VisitWebsite">لطفاً برای دانلود آخرین نسخه یا دریافت راهنمایی و اطلاعات به وب‌سایت مراجعه کنید.</system:String>
-    <system:String x:Key="Lang.Window.About.SubmitIssuePart1">در صورتی که مشکلی در برنامه پیدا کرده‌اید یا قصد دارید پیشنهادی را گزارش کنید، لطفاً آن را در</system:String>
-    <system:String x:Key="Lang.Window.About.SubmitIssuePart2">این قسمت</system:String>
-    <system:String x:Key="Lang.Window.About.SubmitIssuePart3" xml:space="preserve">برای ما ارسال کنید.</system:String>
-    <system:String x:Key="Lang.Window.About.ContactUs">همچنین می‌توانید با ارسال ایمیل با ما تماس بگیرید. سعی خواهیم کرد در اسرع وقت به شما پاسخ دهیم!</system:String>
-    <system:String x:Key="Lang.Window.About.Thanks" xml:space="preserve">با سپاس بخاطر استفاده از Invisible Man XRay&#10;امیدواریم از آن لذت ببرید</system:String>
-
-    <system:String x:Key="Lang.Window.Policy.WindowTitle">خط مشی</system:String>
-    <system:String x:Key="Lang.Window.Policy.Title">خط مشی</system:String>
-    <system:String x:Key="Lang.Window.Policy.Subtitle">خط مشی تجزیه و تحلیل داده‌ها</system:String>
-    <system:String x:Key="Lang.Window.Policy.DescriptionPart1">در</system:String>
-    <system:String x:Key="Lang.Window.Policy.DescriptionPart2">Invisible Man</system:String>
-    <system:String x:Key="Lang.Window.Policy.DescriptionPart3">ما متعهد به ارائه یک تجربه کاربری مناسب برای شما هستیم. به عنوان بخشی از تلاش‌هایمان برای بهبود مستمر خدماتمان، از داده‌های تحلیلی برای به دست آوردن بینش و تصمیم‌گیری آگاهانه استفاده می‌کنیم که برای تمام کاربران سودمند باشد. این خط مشی، رویکرد ما برای تجزیه و تحلیل داده‌ها و تعهد ما به حفاظت از حریم خصوصی شما را تشریح می‌کند.</system:String>
-    <system:String x:Key="Lang.Window.Policy.PurposeOfAnalyticsTitle">1. هدف تجزیه و تحلیل:</system:String>
-    <system:String x:Key="Lang.Window.Policy.PurposeOfAnalyticsDescription">ما از تجزیه و تحلیل داده‌ها برای درک بهتر نحوه استفاده از برنامه، شناسایی زمینه‌های بهبود و بهینه‌سازی ویژگی‌ها و عملکردهایمان استفاده می‌کنیم. با تجزیه و تحلیل الگوهای رفتار کاربر، می‌توانیم تجربه کلی کاربر را بهبود بخشیده و برنامه خود را طوری طراحی کنیم که نیازهای شما را بهتر برآورده کند.</system:String>
-    <system:String x:Key="Lang.Window.Policy.DataCollectionTitle">2. جمع‌آوری داده‌ها:</system:String>
-    <system:String x:Key="Lang.Window.Policy.DataCollectionDescription">داده‌هایی که جمع‌آوری می‌کنیم، کاملاً محدود به اطلاعات غیر شخصی و انبوه است. این بدان معنی است که ما هیچ اطلاعات شخصی که بتواند مستقیماً شما را شناسایی کند، جمع آوری یا پردازش نمی‌کنیم. ما به حریم خصوصی شما احترام می‌گذاریم و متعهد به حفاظت از اطلاعات شخصی شما هستیم.</system:String>
-    <system:String x:Key="Lang.Window.Policy.DataAnonymizationTitle">3. ناشناس‌سازی داده‌ها:</system:String>
-    <system:String x:Key="Lang.Window.Policy.DataAnonymizationDescription">برای اطمینان از حفظ حریم خصوصی شما، تمام داده‌ها، ناشناس جمع‌آوری می‌شود. بدین معنی که داده‌های شما با داده‌های سایر کاربران ترکیب شده و نمی‌توان آن را به فرد خاصی پیوند داد. مطمئن باشید که هویت شما در طول فرآیند تجزیه و تحلیل کاملاً ناشناس باقی می‌ماند.</system:String>
-    <system:String x:Key="Lang.Window.Policy.DataSecurityTitle">4. امنیت داده‌ها:</system:String>
-    <system:String x:Key="Lang.Window.Policy.DataSecurityDescription">ما به امنیت داده های شما اهمیت می‌دهیم. ما اقدامات امنیتی استانداردی را برای محافظت از داده‌های تحلیلی جمع‌آوری شده، اجرا می‌کنیم. سیستم‌های ما در جهت حافظت در برابر دسترسی، استفاده یا افشای غیرمجاز اطلاعات شما طراحی شده‌اند.</system:String>
-    <system:String x:Key="Lang.Window.Policy.ThirdPartyProvidersTitle">5. سرویس‌های ارائه‌دهنده:</system:String>
-    <system:String x:Key="Lang.Window.Policy.ThirdPartyProvidersDescription">ما از Google Analytics به عنوان ارائه‌دهنده برای کمک به جمع‌آوری و تجزیه و تحلیل داده‌ها استفاده می‌کنیم. این ارائه‌دهنده با دقت انتخاب شده و با استانداردهای حریم خصوصی و امنیتی ما مطابقت دارد.</system:String>
-    <system:String x:Key="Lang.Window.Policy.YourChoicesTitle">6. حق انتخاب:</system:String>
-    <system:String x:Key="Lang.Window.Policy.YourChoicesDescription">ما به حق شما برای اجازه تجزیه و تحلیل داده‌هایتان احترام می‌گذاریم. اگر نمی‌خواهید در برنامه تجزیه و تحلیل ما شرکت کنید، می‌توانید در هر زمان از طریق تنظیمات برنامه انصراف دهید. لطفاً توجه داشته باشید که انصراف شما ممکن است بر توانایی ما برای بهبود تجربه کاربری شما تأثیر بگذارد.</system:String>
-    <system:String x:Key="Lang.Window.Policy.AcknowledgeAnalyticsUse">با ادامه استفاده از برنامه، استفاده ما از داده های تجزیه و تحلیل را مطابق با این خط مشی تأیید و با آن موافقت می‌کنید. اگر در مورد روش‌های تجزیه و تحلیل داده‌های ما سؤال یا نگرانی دارید، لطفاً با تیم پشتیبانی ما در آدرس زیر تماس بگیرید:</system:String>
-    <system:String x:Key="Lang.Window.Policy.Thanks">از اینکه Invisible Man XRay را انتخاب کردید متشکریم. ما از اعتماد شما قدردانی کرده و مشتاقانه منتظر ارائه یک تجربه کاربری استثنایی برای شما هستیم.</system:String>
-
     <system:String x:Key="Lang.Window.Server.WindowTitle">پیکربندی سرور</system:String>
     <system:String x:Key="Lang.Window.Server.Title">پیکربندی سرور</system:String>
     <system:String x:Key="Lang.Window.Server.Subtitle">مدیریت پیکربندی‌های سرور</system:String>
@@ -90,10 +56,6 @@
     <system:String x:Key="Lang.Window.Settings.Tun.Dns">DNS</system:String>
     <system:String x:Key="Lang.Window.Settings.Log.Level">سطح گزارش</system:String>
     <system:String x:Key="Lang.Window.Settings.Log.Path">مسیر فایل گزارش</system:String>
-
-    <system:String x:Key="Lang.Window.Update.WindowTitle">بروزرسانی</system:String>
-    <system:String x:Key="Lang.Window.Update.Title">بروزرسانی</system:String>
-    <system:String x:Key="Lang.Window.Update.Subtitle">بررسی بروزرسانی</system:String>
 
     <system:String x:Key="Lang.Config.Status.NotChecked">بررسی نشده</system:String>
     <system:String x:Key="Lang.Config.Status.Timeout">تایم‌اوت</system:String>

@@ -23,40 +23,7 @@
 
     <system:String x:Key="Lang.Window.Main.ManageServerConfiguration">Управление конфигурациями</system:String>
 
-    <system:String x:Key="Lang.Window.About.WindowTitle">О программе</system:String>
-    <system:String x:Key="Lang.Window.About.Title">О ПРОГРАММЕ</system:String>
-    <system:String x:Key="Lang.Window.About.Subtitle">Об Invisible Man XRay</system:String>
-    <system:String x:Key="Lang.Window.About.ApplicationVersion">Версия приложения:</system:String>
-    <system:String x:Key="Lang.Window.About.XrayCoreVersion">Версия Xray-core:</system:String>
-    <system:String x:Key="Lang.Window.About.Description">— это бесплатный клиент с открытым исходным кодом, поддерживающий xray core. Он предоставляет удобный интерфейс для настройки и управления прокси, позволяя пользователям переключаться между различными серверами.</system:String>
-    <system:String x:Key="Lang.Window.About.VisitWebsite">Пожалуйста, посетите сайт, чтобы загрузить последнюю версию или получить помощь.</system:String>
-    <system:String x:Key="Lang.Window.About.SubmitIssuePart1">Если у вас возникли проблемы или вы хотите сообщить об ошибке или предложении, вы можете сообщить об этом в нашем</system:String>
-    <system:String x:Key="Lang.Window.About.SubmitIssuePart2">трекере задач</system:String>
-    <system:String x:Key="Lang.Window.About.SubmitIssuePart3">.</system:String>
-    <system:String x:Key="Lang.Window.About.ContactUs">Также вы можете связаться с нами по email. Мы постараемся ответить вам как можно скорее!</system:String>
-    <system:String x:Key="Lang.Window.About.Thanks" xml:space="preserve">Спасибо, что используете Invisible Man XRay&#10;Надеемся, вам понравится</system:String>
-
-    <system:String x:Key="Lang.Window.Policy.WindowTitle">Политика</system:String>
-    <system:String x:Key="Lang.Window.Policy.Title">ПОЛИТИКА</system:String>
-    <system:String x:Key="Lang.Window.Policy.Subtitle">Политика анализа данных</system:String>
-    <system:String x:Key="Lang.Window.Policy.DescriptionPart1">В</system:String>
-    <system:String x:Key="Lang.Window.Policy.DescriptionPart2">Invisible Man</system:String>
-    <system:String x:Key="Lang.Window.Policy.DescriptionPart3">мы стремимся предоставить вам исключительный пользовательский опыт. В рамках наших усилий по постоянному улучшению наших услуг мы используем аналитические данные, чтобы получать представления и принимать обоснованные решения, которые приносят пользу всем нашим пользователям. Эта политика описывает наш подход к анализу данных и нашу приверженность защите вашей конфиденциальности.</system:String>
-    <system:String x:Key="Lang.Window.Policy.PurposeOfAnalyticsTitle">1. Цель аналитики:</system:String>
-    <system:String x:Key="Lang.Window.Policy.PurposeOfAnalyticsDescription">Мы используем аналитику, чтобы лучше понять, как используется наше приложение, выявить области для улучшения и оптимизировать наши функции и возможности. Анализируя поведение пользователей, мы можем улучшить общий пользовательский опыт и адаптировать наше приложение под ваши потребности.</system:String>
-    <system:String x:Key="Lang.Window.Policy.DataCollectionTitle">2. Сбор данных:</system:String>
-    <system:String x:Key="Lang.Window.Policy.DataCollectionDescription">Данные, которые мы собираем, ограничиваются неперсональной, агрегированной информацией. Это означает, что мы не собираем и не обрабатываем личную информацию, которая может прямо идентифицировать вас. Мы уважаем вашу конфиденциальность и стремимся защищать ваши персональные данные.</system:String>
-    <system:String x:Key="Lang.Window.Policy.DataAnonymizationTitle">3. Анонимизация данных:</system:String>
-    <system:String x:Key="Lang.Window.Policy.DataAnonymizationDescription">Чтобы обеспечить вашу конфиденциальность, любые данные, которые мы собираем, анонимизируются и агрегируются. Это означает, что они объединяются с данными других пользователей и не могут быть связаны с конкретным лицом. Будьте уверены, что ваша личность остается полностью анонимной на протяжении всего процесса анализа.</system:String>
-    <system:String x:Key="Lang.Window.Policy.DataSecurityTitle">4. Безопасность данных:</system:String>
-    <system:String x:Key="Lang.Window.Policy.DataSecurityDescription">Мы серьезно относимся к безопасности ваших данных. Мы внедрили современные меры для защиты аналитических данных, которые мы собираем. Наши системы защищены от несанкционированного доступа, использования или раскрытия вашей информации.</system:String>
-    <system:String x:Key="Lang.Window.Policy.ThirdPartyProvidersTitle">5. Сторонние поставщики:</system:String>
-    <system:String x:Key="Lang.Window.Policy.ThirdPartyProvidersDescription">Мы используем Google Analytics в качестве стороннего провайдера аналитики, чтобы помочь нам в сборе и анализе данных. Этот провайдер тщательно выбран и соответствует нашим стандартам конфиденциальности и безопасности.</system:String>
-    <system:String x:Key="Lang.Window.Policy.YourChoicesTitle">6. Ваш выбор:</system:String>
-    <system:String x:Key="Lang.Window.Policy.YourChoicesDescription">Мы уважаем ваше право контролировать ваши данные. Если вы не хотите участвовать в нашей программе аналитики, вы можете отказаться в любое время через настройки приложения. Обратите внимание, что отказ может повлиять на нашу способность улучшать ваш пользовательский опыт.</system:String>
-    <system:String x:Key="Lang.Window.Policy.AcknowledgeAnalyticsUse">Продолжая использовать наше приложение, вы подтверждаете и соглашаетесь с использованием нами аналитических данных в соответствии с этой политикой. Если у вас есть вопросы или опасения по поводу наших практик анализа данных, пожалуйста, свяжитесь с нашей службой поддержки по адресу:</system:String>
-    <system:String x:Key="Lang.Window.Policy.Thanks">Спасибо, что выбрали Invisible Man XRay. Мы ценим ваше доверие и надеемся предоставить вам исключительный пользовательский опыт.</system:String>
-
+  
     <system:String x:Key="Lang.Window.Server.WindowTitle">Конфигурации</system:String>
     <system:String x:Key="Lang.Window.Server.Title">КОНФИГУРАЦИИ</system:String>
     <system:String x:Key="Lang.Window.Server.Subtitle">Управление конфигурациями</system:String>
@@ -89,11 +56,7 @@
     <system:String x:Key="Lang.Window.Settings.Tun.Dns">DNS</system:String>
     <system:String x:Key="Lang.Window.Settings.Log.Level">Уровень логов</system:String>
     <system:String x:Key="Lang.Window.Settings.Log.Path">Путь до лог-файлов</system:String>
-
-    <system:String x:Key="Lang.Window.Update.WindowTitle">Обновление</system:String>
-    <system:String x:Key="Lang.Window.Update.Title">ОБНОВЛЕНИЕ</system:String>
-    <system:String x:Key="Lang.Window.Update.Subtitle">Проверка обновлений</system:String>
-
+    
     <system:String x:Key="Lang.Config.Status.NotChecked">Не проверено</system:String>
     <system:String x:Key="Lang.Config.Status.Timeout">Таймаут</system:String>
     <system:String x:Key="Lang.Config.Status.Available">Доступно</system:String>
@@ -112,7 +75,7 @@
     <system:String x:Key="Lang.ToolTip.Check">Проверить</system:String>
     <system:String x:Key="Lang.ToolTip.Update">Обновить</system:String>
 
-    <system:String x:Key="Lang.Notify.Open">Открыть Invisible Man XRay</system:String>
+    <system:String x:Key="Lang.Notify.Open">Открыть Pingfa</system:String>
     <system:String x:Key="Lang.Notify.Mode">Режим</system:String>
     <system:String x:Key="Lang.Notify.Update">Проверить обновления</system:String>
     <system:String x:Key="Lang.Notify.About">О программе</system:String>
